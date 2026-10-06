@@ -14,8 +14,9 @@ public class ChunkReader {
         while((count = input.read(buffer))!= -1){
             System.out.write(buffer,0, count);
             System.out.println();
+            total += count;
         }
-        total += count;
+
 
     }
 }
