@@ -10,6 +10,7 @@ public class AlphabetPrinter {
 
     }
         System.out.write(10);
+        System.out.flush();
 
         byte[] data = "JAVA".getBytes(StandardCharsets.UTF_8);
         System.out.write(data);
