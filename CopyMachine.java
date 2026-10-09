@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class CopyMachine {
-    static void main (String[] args) throws IOException{
+    static void main (String[] args) {
         String source = "media/bright.jpg";
         File target = new File("photocopy.jpg");
         try(

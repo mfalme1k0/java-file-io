@@ -1,35 +1,39 @@
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
+   try{
 
-        String source = "big.bin";
+       String source = "big.bin";
 
-        long start = System.nanoTime();
+       long start = System.nanoTime();
 
-        SpeedRace.copyPlain(source, "plain-copy.bin");
+       SpeedRace.copyPlain(source, "plain-copy.bin");
 
-        long end = System.nanoTime();
+       long end = System.nanoTime();
 
-        long plainTime = (end - start) / 1_000_000;
+       long plainTime = (end - start) / 1_000_000;
 
-        start = System.nanoTime();
+       start = System.nanoTime();
 
-        SpeedRace.copyBuffered(source, "buffered-copy.bin");
+       SpeedRace.copyBuffered(source, "buffered-copy.bin");
 
-        end = System.nanoTime();
+       end = System.nanoTime();
 
-        long bufferedTime = (end - start) / 1_000_000;
+       long bufferedTime = (end - start) / 1_000_000;
 
-        System.out.println("Plain: " + plainTime + " ms");
-        System.out.println("Buffered: " + bufferedTime + " ms");
+       System.out.println("Plain: " + plainTime + " ms");
+       System.out.println("Buffered: " + bufferedTime + " ms");
 
-        double speedup =
-                (double) plainTime / bufferedTime;
+       double speedup =
+               (double) plainTime / bufferedTime;
 
-        System.out.printf(
-                "Buffered was %.2fx faster%n",
-                speedup
-        );
+       System.out.printf(
+               "Buffered was %.2fx faster%n",
+               speedup
+       );
+   } catch (IOException e){
+       System.out.println("Error:" + e.getMessage());
+   }
     }
 }

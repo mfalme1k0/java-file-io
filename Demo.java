@@ -6,26 +6,30 @@ import java.util.Scanner;
 
 //writing and reading from a file
 public class Demo {
-    public static void main(String[] args) throws IOException {
-        File file = new File("text.txt");
+    public static void main(String[] args){
+      try{
+          File file = new File("text.txt");
 
-        // Write to file
-        PrintWriter output = new PrintWriter(file);
+          // Write to file
+          PrintWriter output = new PrintWriter(file);
 
-        output.println("Kood is cool");
-        output.println(2026);
+          output.println("Kood is cool");
+          output.println(2026);
 
-        output.close();
+          output.close();
 
-        //read file
-        Scanner input = new Scanner(file);
+          //read file
+          Scanner input = new Scanner(file);
 
-        String name = input.nextLine();
-        int year = input.nextInt();
+          String name = input.nextLine();
+          int year = input.nextInt();
 
-        System.out.printf("Name: %s year: %d\n", name, year);
+          System.out.printf("Name: %s year: %d\n", name, year);
 
-        input.close();
+          input.close();
+      } catch (IOException e){
+          System.out.println("Error:" + e.getMessage());
+      }
 
 
     }

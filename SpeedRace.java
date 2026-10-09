@@ -12,6 +12,8 @@ public class SpeedRace {
           while((value = in.read())!= -1){
               out.write(value);
           }
+      }catch (IOException e){
+          System.out.println("Error" + e.getMessage());
       }
 
   }
@@ -26,14 +28,12 @@ public class SpeedRace {
              outputStream.write(value);
          }
 
+     } catch (IOException e){
+         System.out.println("Error" + e.getMessage());
      }
 
   }
 
-    static void main() throws IOException {
-      copyPlain("big.bin", "plaincopy.bin");
-      copyBuffered("big.bin", "bufferedcopy.bin");
 
-    }
 
 }
